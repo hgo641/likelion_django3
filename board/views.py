@@ -18,13 +18,12 @@ def post_create(req):
 def post_read(req, id):
     blog_object = get_object_or_404(Blog, pk=id)
     comments = blog_object.comment_set.all()
-    c = blog_object.comment_set.first()
-    print(c)
-    print(comments)
     context = {
         'data' : blog_object,
         'comments' : comments,
     }
+    # if req.method == 'POST':
+    #     blog_object.comment_set.create(body = req.POST['comment'])
     return render(req, 'post_read.html', context)
 
 def post_edit(req, id):
