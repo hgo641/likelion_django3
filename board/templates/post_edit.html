@@ -1,6 +1,6 @@
 <h1>Edit</h1>
 
-<form action="{% url 'post_update' data.id %}" method="POST">
+<form action="{% url 'post_edit' data.id %}" method="POST">
     {%csrf_token%} 제목 :
     <input type="text" name="title" value="{{data.title}}" /><br />
     내용 :
